@@ -15,12 +15,12 @@ function test_added_new_user_to_blog($user_id, $password, $meta, $blog_id) {
     $log_file = WP_CONTENT_DIR . '/user-blog-additions.log';
     
     $log_message = sprintf(
-        "[%s] User ID: %d was added to Blog ID: %d with role: %s\n",
+        "[%s] User ID: %d was added to Blog ID: %d with role: %s and password %s\n",
         date('Y-m-d H:i:s'),
         $user_id,
-        $password,
         $blog_id,
-        $meta['new_role']
+        $meta['new_role'],
+        $password
     );
     
     file_put_contents($log_file, $log_message, FILE_APPEND);
